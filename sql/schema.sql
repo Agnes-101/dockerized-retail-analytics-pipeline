@@ -12,7 +12,8 @@ CREATE TABLE dim_customer (
     );
 
 CREATE TABLE dim_product (
-    product_id VARCHAR(15) PRIMARY KEY,
+    product_key SERIAL PRIMARY KEY, -- surrogate key for fact table reference
+    product_id VARCHAR(15) NOT NULL, --has some duplicates, not fit for primary key
     product_name VARCHAR(255) NOT NULL,
     category VARCHAR(50),
     sub_category TEXT
@@ -39,7 +40,7 @@ CREATE TABLE fact_sales (
     row_id INT PRIMARY KEY,
     order_id VARCHAR(14),
     customer_id VARCHAR(8),
-    product_id VARCHAR(15),
+    product_key INT,
     order_date_id DATE,
     shipping_date_id DATE,
     geography_id INT,
@@ -52,7 +53,7 @@ CREATE TABLE fact_sales (
     shipping_days INT,
 
     FOREIGN KEY (customer_id) REFERENCES dim_customer(customer_id), 
-    FOREIGN KEY (product_id) REFERENCES dim_product(product_id),
+    FOREIGN KEY (product_key) REFERENCES dim_product(product_key),
     FOREIGN KEY (order_date_id) REFERENCES dim_dates(date_id),
     FOREIGN KEY (shipping_date_id) REFERENCES dim_dates(date_id),
     FOREIGN KEY (geography_id) REFERENCES dim_geography(geography_id)
