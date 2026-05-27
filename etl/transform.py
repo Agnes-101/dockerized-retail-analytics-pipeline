@@ -22,8 +22,8 @@ Column names in the dataset:
 
 import pandas as pd
 
-def transform():
-    df = pd.read_csv('data/raw_data/superstore_data.csv')
+def transform(df):
+    # df = pd.read_csv('data/raw_data/superstore_data.csv')
     print("First 5 rows of the dataset:")   
     pd.set_option('display.max_columns', None)
     # print(df.columns.tolist())
@@ -32,9 +32,9 @@ def transform():
     # print('Transformed column names:', df.columns.tolist())
 
     # print(df.info())
-    print('Duplicate rows:', df.duplicated().sum())
-    print('Missing values per column:\n', df.isnull().sum())
-    print('Data types of columns:\n', df.dtypes)
+    # print('Duplicate rows:', df.duplicated().sum())
+    # print('Missing values per column:\n', df.isnull().sum())
+    # print('Data types of columns:\n', df.dtypes)
 
     df['order_date']= pd.to_datetime(df['order_date'], format='%m/%d/%Y')
     df['ship_date']= pd.to_datetime(df['ship_date'], format='%m/%d/%Y')
@@ -55,10 +55,12 @@ def transform():
     df['shipping_days'] = (df['ship_date'] - df['order_date']).dt.days    
 
     df.drop(columns=['customer_name'], inplace=True)
-    print(df.head())
+    # print(df.head())
 
     output_path = 'data/processed_data/superstore_data_transformed.csv'
     df.to_csv(output_path, index=False)
     print(f"Transformed dataset saved to: {output_path}")
 
-transform()
+    return df
+
+# transform()

@@ -1,0 +1,31 @@
+services:
+
+  postgres:
+    image: postgres:15
+
+    container_name: retail_postgres
+
+    restart: always
+
+    environment:
+      POSTGRES_USER: agnes
+      POSTGRES_PASSWORD: P@SSW0rd
+      POSTGRES_DB: retail_warehouse
+
+    ports:
+      - "5433:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  etl:
+    build: .
+
+    container_name: retail_etl
+
+    depends_on:
+      - postgres
+
+    env_file:
+      - .env
+volumes:
+  postgres_data:

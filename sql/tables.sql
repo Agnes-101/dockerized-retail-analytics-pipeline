@@ -5,14 +5,28 @@ TRUNCATE fact_sales,
          dim_geography
 RESTART IDENTITY CASCADE;
 
-INSERT INTO dim_customer(customer_id, customer_first_name, customer_last_name, segment) 
+INSERT INTO dim_customer(
+    customer_id,
+    customer_first_name, 
+    customer_last_name, 
+    segment) 
 SELECT DISTINCT
-    customer_id, customer_first_name, customer_last_name, segment
+    customer_id, 
+    customer_first_name, 
+    customer_last_name, 
+    segment
 FROM staging_sales;
 
-INSERT INTO dim_product(product_id, product_name, category, sub_category) 
+INSERT INTO dim_product(
+    product_id, 
+    product_name, 
+    category, 
+    sub_category) 
 SELECT DISTINCT 
-    product_id, product_name, category, sub_category
+    product_id, 
+    product_name, 
+    category, 
+    sub_category
 FROM staging_sales;
 
 INSERT INTO dim_dates (
@@ -85,10 +99,6 @@ AND s.city = g.city
 AND s.country = g.country 
 AND s.state = g.state 
 AND s.region = g.region
--- JOIN dim_product p
--- ON s.product_name = p.product_name
--- AND s.category = p.category
--- AND s.sub_category = p.sub_category;
 JOIN dim_product p
 ON s.product_id = p.product_id
 AND s.product_name = p.product_name;

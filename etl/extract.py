@@ -16,4 +16,6 @@ def extract():
 
     print(f"Raw dataset saved to: {output_path}") 
 
-extract()
+    return df
+
+# extract()

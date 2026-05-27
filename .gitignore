@@ -4,5 +4,7 @@ __pycache__/
 .env
 *.pyc
 stepwise.txt
-import_amazon.py
-transform_amazon.py
+updated_stepwise.txt
+
+data/raw_data/*
+data/processed_data/*
