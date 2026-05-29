@@ -185,7 +185,9 @@ The dashboards provide analytical insights into:
 * Shipping and operational metrics
 * Time-based sales analysis
 * Discount versus profitability relationships
+## Dashboard Overview
 
+![Dashboard Overview](screenshots/dashboard_overview.png)
 ---
 
 # Dockerized Infrastructure
