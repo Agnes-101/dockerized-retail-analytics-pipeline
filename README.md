@@ -14,14 +14,16 @@ The project demonstrates practical data engineering and analytics engineering co
 
 The project evolved incrementally through several stages:
 
-### Phase 1 — Data Cleaning & Analytics
+### Phase 1 — Data Ingestion, Cleaning & Analytics
 
+* Imports data from a Kaggle Superstore retail CSV dataset
 * Performed exploratory data analysis and preprocessing using Python and Pandas
 * Cleaned retail sales data and generated transformed datasets for downstream analytics
 
 ### Phase 2 — PostgreSQL Data Warehouse
 
 * Designed and implemented a dimensional star-schema warehouse
+* Loaded the data from the transformed dataset into a staging area
 * Created fact and dimension tables for customer, product, geography, and date analytics
 * Developed SQL scripts for automated warehouse population and KPI querying
 
@@ -63,54 +65,6 @@ The project evolved incrementally through several stages:
 * psycopg2
 
 ---
-
-# Features
-
-## Automated ETL Pipeline
-
-* Extracts retail sales data from source CSV datasets
-* Performs automated data cleaning and preprocessing
-* Transforms raw data into analytics-ready formats
-* Loads transformed data into PostgreSQL staging tables
-* Executes warehouse population workflows automatically
-
-## Dimensional Data Warehouse
-
-* Implements a star-schema warehouse architecture
-* Separates transactional and analytical workloads
-* Includes fact and dimension tables for scalable querying
-* Supports business intelligence and KPI reporting
-
-## SQL-Based Warehouse Population
-
-* Uses dedicated SQL scripts for schema creation and warehouse loading
-* Automates dimension and fact table population
-* Handles date dimension generation and relationship mapping
-* Supports repeatable warehouse refresh workflows
-
-## Containerized Data Engineering Infrastructure
-
-* Uses Docker for isolated and portable execution
-* Uses Docker Compose for multi-service orchestration
-* Simplifies deployment and environment consistency
-* Enables reproducible local pipeline execution
-
-## Business Intelligence & Reporting
-
-* Interactive Power BI dashboards
-* KPI reporting and analytical insights
-* Regional, product, customer, and operational analytics
-* Time-series sales and profitability analysis
-* DAX-based calculations and measures
-
-## Modular Pipeline Architecture
-
-* Separation of extraction, transformation, loading, and warehouse logic
-* Reusable ETL modules for maintainability
-* Structured project organization for scalability and extensibility
-
----
-
 # Data Warehouse Schema
 
 ## Fact Table
@@ -125,36 +79,6 @@ The project evolved incrementally through several stages:
 * `dim_geography`
 
 ---
-
-# Project Structure
-
-```text id="2s8f0t"
-cloud_retail_de_bi_platform/
-│
-├── data/
-│   ├── raw_data/
-│   └── processed_data/
-│
-├── etl/
-│   ├── extract.py
-│   ├── transform.py
-│   ├── load.py
-│   └── run_pipeline.py
-│
-├── sql/
-│   ├── schema.sql
-│   └── tables.sql
-│
-├── dashboards/
-│
-├── docker-compose.yml
-├── Dockerfile
-├── requirements.txt
-└── README.md
-```
-
----
-
 # ETL Pipeline Workflow
 
 ```text id="cncq6m"
@@ -206,7 +130,7 @@ This enables reproducible and portable pipeline execution across environments wh
 ## 1. Clone the Repository
 
 ```bash id="8nhukn"
-git clone <repository-url>
+git clone https://github.com/Agnes-101/dockerized-retail-analytics-pipeline.git
 cd cloud_retail_de_bi_platform
 ```
 
