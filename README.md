@@ -101,14 +101,11 @@ Power BI Dashboards
 
 The dashboards provide analytical insights into:
 
-* Sales performance trends
-* Profitability analysis
-* Product and category performance
-* Customer segmentation
-* Regional sales distribution
-* Shipping and operational metrics
-* Time-based sales analysis
-* Discount versus profitability relationships
+* Overall Summary - Sales performance trends, Profitability analysis
+* Product Performance - Product and category performance, Discount versus profitability relationships
+* Customer Analysis - Customer segmentation, Regional sales distribution
+* Operational Analysis - Shipping and operational metrics, Time-based sales analysis
+  
 ## Dashboard Overview
 
 ![Dashboard Overview](screenshots/dashboard_overview.png)
